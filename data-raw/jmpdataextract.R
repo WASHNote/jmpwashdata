@@ -120,8 +120,41 @@ load("data/jmp_files.rda")
 
 }
 
+.extract_inequalities_region_data <- function(verbose = FALSE) {
+  countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
+  #%>% filter(geo == "NPL")
+
+  use_data <- usethis::use_data
+
+  # 3 x sources
+  lapply(c("water", "sanitation", "hygiene"), function(service_type) {
+    dataset_name <- paste0("jmp_inequality_",service_type,"_region")
+
+    print(dataset_name)
+
+    dataset <- lapply(countries$geo, function(x) {
+      ineq_path <- paste0("data-raw/inequalities/", filter(countries, geo == x)$filename)
+
+      print(ineq_path)
+
+      .get_inequalities_region(
+        ineq_path = ineq_path,
+        iso3 = x,
+        service_type = service_type,
+        verbose = verbose
+      )
+    }) %>% bind_rows()
+
+    assign(dataset_name, dataset)
+
+    do.call("use_data", list(as.name(dataset_name), overwrite = TRUE, compress = "bzip2"))
+
+  })
+
+}
+
 .extract_inequalities_source_data <- function() {
-  countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG"))) %>% slice_head(n = 2)
+  countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
 
   use_data <- usethis::use_data
 
@@ -222,17 +255,17 @@ load("data/jmp_files.rda")
       "region" = "R121:ZZ121"
     ),
     "hygiene" = list(
-      "var_list" = "A222:B227",
-      "composite" = "C221:G227",
-      "urban" = "H221:L227",
-      "rural" = "M221:Q227",
+      "var_list" = "A222:B224",
+      "composite" = "C221:G224",
+      "urban" = "H221:L224",
+      "rural" = "M221:Q224",
       "region_anchor" = "R221",
       "region" = "R221:ZZ221"
     )
   )
 }
 
-.label_var_list <- function(service_type = "water") {
+.label_var_list <- function() {
   common <- list(
     "Improved" = "imp",
     "Not Improved" = "not_imp",
@@ -295,12 +328,16 @@ load("data/jmp_files.rda")
 
   lapply(1:3, function(x, ranges) {
     print(x)
-    quin_vars <- readxl::read_excel(ineq_path, sheet = sheet, range=ranges$residence[[x]], col_names = TRUE) %>%
+    quin_vars <- suppressMessages(
+      readxl::read_excel(ineq_path, sheet = sheet, range=ranges$residence[[x]], col_names = TRUE)
+      ) %>%
       .estimate_quintile_vars(iso3)
 
     lapply(1:5, function(y, quintile_list) {
       print(y*1000)
-      df_quin <- readxl::read_excel(ineq_path, sheet = sheet, range=as.character(quintile_list[y]), col_names = TRUE)
+      df_quin <- suppressMessages(
+        readxl::read_excel(ineq_path, sheet = sheet, range=as.character(quintile_list[y]), col_names = TRUE)
+      )
       names(df_quin) <- var_names
       df_quin <- df_quin %>%
         mutate(quintile = names(quintile_list[y]),
@@ -311,7 +348,7 @@ load("data/jmp_files.rda")
 }
 
 .finish_quintile <- function(varx, quinx) {
-  bind_cols(varx, quinx) %>% pivot_longer(4:8, names_to = "quintile")
+  bind_cols(varx, quinx) %>% pivot_longer(4:8, names_to = "quintile") %>% filter(!is.na(value))
 }
 
 .get_inequalities_sources <- function(ineq_path, iso3, service_type = "water") {
@@ -325,22 +362,39 @@ load("data/jmp_files.rda")
 
 }
 
-.get_inequalities_source_by_sheet <- function(ineq_path, iso3, sheet_name, service_type) {
+.get_inequalities_source_var_columns <- function(ineq_path, sheet_name, service_type) {
+  label_var = .label_var_list()[[service_type]]
   locations <- .source_range_list()
-  label_var = .label_var_list(service_type)
 
   # get first var columns
-  df_1 <- readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[type]][["var_list"]], col_names = FALSE) %>% tidyr::fill(1, .direction = "down")
+  df_1 <- suppressMessages(
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["var_list"]], col_names = FALSE)
+    ) %>% tidyr::fill(1, .direction = "down")
   names(df_1) <- c("var_type", "var_label")
   df_1$var <- as.character(label_var[df_1$var_label])
 
+  df_1
+}
+
+
+.get_inequalities_source_by_sheet <- function(ineq_path, iso3, sheet_name, service_type) {
+  locations <- .source_range_list()
+
+  df_1 <- .get_inequalities_source_var_columns(ineq_path, sheet_name, service_type)
+
   # get data per residence type
-  df_composite <- readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[type]][["composite"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+  df_composite <- suppressMessages(
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["composite"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
     mutate(residence = "National")
-  df_urban <- readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[type]][["urban"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+  )
+  df_urban <- suppressMessages(
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["urban"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
     mutate(residence = "Urban")
-  df_rural <- readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[type]][["rural"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+  )
+  df_rural <- suppressMessages(
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["rural"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
     mutate(residence = "Rural")
+  )
 
   # combine all data and pivot_longer with .finish_quintile
   list(df_composite, df_urban, df_rural) %>%
@@ -350,11 +404,20 @@ load("data/jmp_files.rda")
 }
 
 # No notes are saved from the surveys
-.add_survey_vars <- function(sheet_name, iso3) {
+.add_survey_vars <- function(x, sheet_name, iso3) {
+
+  year_code <- stringr::str_sub(sheet_name, -2, -1)
+  main_source_code = stringr::str_sub(sheet_name, 1, -3)
+
+  if (suppressWarnings(is.na(as.numeric(year_code)))) {
+    year_code <- stringr::str_extract(sheet_name, "[0-9]+")
+    main_source_code = stringr::str_replace_all(sheet_name, "[0-9]+", "")
+  }
+
   x %>% mutate(
     main_source = sheet_name,
-    main_source_code = stringr::str_sub(sheet_name, 1, -3),
-    year_code = stringr::str_sub(sheet_name, -2, -1),
+    main_source_code = main_source_code,
+    year_code = year_code,
     iso3 = iso3
   ) %>%
     mutate(
@@ -363,31 +426,55 @@ load("data/jmp_files.rda")
 }
 
 
-.get_inequalities_region() {
+.get_inequalities_region <- function(ineq_path, iso3, service_type = "water", verbose = FALSE) {
+  sheets <- readxl::excel_sheets(ineq_path) %>% .[!(. %in% c("Introduction", "Water", "Sanitation", "Hygiene"))]
+
+  lapply(sheets, function(sheet_name) {
+    .get_inequalities_region_by_sheet(ineq_path, iso3, sheet_name, service_type, verbose)
+  }) %>% bind_rows() %>% mutate(
+    iso3 = iso3
+  )
 
 }
 
-.get_inequalities_region_by_sheet() {
+.get_inequalities_region_by_sheet <- function(ineq_path, iso3, sheet_name, service_type, verbose = FALSE) {
+  locations <- .source_range_list()
 
-}
+  df_1 <- .get_inequalities_source_var_columns(ineq_path, sheet_name, service_type)
 
-.get_regions_by_type <- function(sheet_name, type) {
 
   # the number of rows can vary per type
-  cl <- cellranger::as.cell_limits(locations[[type]][["composite"]])
+  cl <- cellranger::as.cell_limits(locations[[service_type]][["composite"]])
   var_length <- cl[[2]][1] - cl[[1]][1] + 1
 
-  df_region_names <- readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[type]][["region"]], col_names = TRUE, na = c("","N/A")) %>%
+  df_region_names <- suppressMessages(
+      readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["region"]], col_names = TRUE, na = c("","N/A","N/a"))
+    ) %>%
     select(-starts_with("...")) %>%
     names()
 
-  region_range <- cellranger::anchored(locations[[type]][["region_anchor"]], dim = c(var_length, length(df_region_names))) %>%
-    cellranger::as.range(fo = "A1")
+  if (verbose) {
+    print(sheet_name)
+    print(df_region_names)
+  }
 
-  df_region <- readxl::read_excel(ineq_path, sheet = sheet_name, range=region_range, col_names = TRUE, na = c("","N/A"))
+  if (length(df_region_names)>0) {
+    region_range <- cellranger::anchored(locations[[service_type]][["region_anchor"]], dim = c(var_length, length(df_region_names))) %>%
+      cellranger::as.range(fo = "A1")
 
-  df_region <- bind_cols(df_1, df_region) %>% .add_survey_vars(sheet_name, iso3)
+    df_region <- suppressMessages(
+      readxl::read_excel(ineq_path, sheet = sheet_name, range=region_range, col_names = TRUE, col_types = rep("numeric", length(df_region_names)), na = c("","N/A","N/a"))
+    )
 
+    bind_cols(df_1, df_region) %>%
+      pivot_longer(4:(3+length(df_region_names)), names_to = "region", values_drop_na = TRUE) %>%
+      .add_survey_vars(sheet_name, iso3)
+  } else {
+    df_1$region <- NA_character_
+    df_1$value <- as.numeric(NA)
+    df_1 %>% filter(!is.na(value)) %>%
+      .add_survey_vars(sheet_name, iso3)
+  }
 }
 
 ### Surveys (including hygiene)

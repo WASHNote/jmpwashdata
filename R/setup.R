@@ -26,5 +26,6 @@
   install.packages("rio")
   install.packages("XML")
   install.packages("stringr")
+  install.packages("tidyr")
 }
 
