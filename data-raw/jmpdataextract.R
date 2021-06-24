@@ -161,16 +161,16 @@ load("data/jmp_files.rda")
   cell_limits(old_anchor[[1]] + c(x,y), old_anchor[[2]] + c(x,y))
 }
 
-.get_all_quintile_estimates <- function(ineq_path) {
+.get_all_quintile_estimates <- function(ineq_path, sheet = "Water", var_names = c("wat_bas", "wat_lim", "wat_unimp", "wat_sur")) {
   lapply(1:3, function(x, ranges) {
     print(x)
-    quin_vars <- readxl::read_excel(ineq_path, sheet = "Water", range=ranges$residence[[x]], col_names = TRUE) %>%
+    quin_vars <- readxl::read_excel(ineq_path, sheet = sheet, range=ranges$residence[[x]], col_names = TRUE) %>%
       .quintile_vars()
 
     lapply(1:5, function(y, quintile_list) {
       print(y*1000)
-      df_quin <- readxl::read_excel(ineq_path, sheet = "Water", range=as.character(quintile_list[y]), col_names = TRUE)
-      names(df_quin) <- c("wat_bas", "wat_lim", "wat_unimp", "wat_sur")
+      df_quin <- readxl::read_excel(ineq_path, sheet = sheet, range=as.character(quintile_list[y]), col_names = TRUE)
+      names(df_quin) <- var_names
       df_quin %>%
         mutate(quintile = names(quintile_list[y]))
       bind_cols(quin_vars, df_quin)
@@ -179,41 +179,60 @@ load("data/jmp_files.rda")
   }, ranges = .range_list()) %>% bind_rows()
 }
 
-.get_inequalities_sources <- function() {
-  # Get list of all sheets
-  # Survey sheets are sheets not in c("Introduction", "Water", "Sanitation", "Hygiene")
-
-  df_1 <- as_tibble(readxl::read_excel(jmp_ineq_bfa_path, sheet = "DHS03", range="A16:B26", col_names = FALSE)) %>% tidyr::fill(1, .direction = "down")
-  names(df_1) <- c("var_type", "var_label")
-  label_var <- list(
-    "Improved" = "imp",
-    "Not Improved" = "not_imp",
-    "Basic" = "bas",
-    "Limited" = "lim",
-    "Other unimproved" = "unimp",
-    "Surface water" = "sur",
-    "Yes" = "gt30m",
-    "No" = "ls30m",
-    "Improved wells" = "imp_wells",
-    "Improved springs" = "imp_springs",
-    "Other" = "other"
+.get_inequalities_sources <- function(type = "water") {
+  locations <- list(
+    "water" = list(
+      "var_list" = "A16:B26",
+      "composite" = "",
+      "national" = "",
+      "urban" = ""
+      )
   )
-  df_1$var <- as.character(label_var[df_1$var_label])
 
-  finish_quintile <- function(varx, quinx) {
-    bind_cols(varx, quinx) %>% pivot_longer(4:8, names_to = "quintile")
-  }
+  ineq_path <- jmp_ineq_bfa_path
 
-  df_composite <- readxl::read_excel(jmp_ineq_bfa_path, sheet = "DHS03", range="C15:G26", col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
-    mutate(residence = "National")
-  df_urban <- readxl::read_excel(jmp_ineq_bfa_path, sheet = "DHS03", range="H15:L26", col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
-    mutate(residence = "Urban")
-  df_rural <- readxl::read_excel(jmp_ineq_bfa_path, sheet = "DHS03", range="M15:Q26", col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
-    mutate(residence = "Rural")
+  sheets <- readxl::excel_sheets(ineq_path) %>% .[!(. %in% c("Introduction", "Water", "Sanitation", "Hygiene"))]
 
-  list(df_composite, df_urban, df_rural) %>%
-    lapply(function(x) {finish_quintile(df_1, x)}) %>%
-    bind_rows() %>% add_survey_vars
+  lapply(sheets, function(sheet_name) {
+
+    # Get list of all sheets
+    # Survey sheets are sheets not in
+
+    df_1 <- readxl::read_excel(ineq_path, sheet = "DHS03", range=locations[[type]][["var_list"]], col_names = FALSE) %>% tidyr::fill(1, .direction = "down")
+    names(df_1) <- c("var_type", "var_label")
+    label_var <- list(
+      "Improved" = "imp",
+      "Not Improved" = "not_imp",
+      "Basic" = "bas",
+      "Limited" = "lim",
+      "Other unimproved" = "unimp",
+      "Open defecation" = "od",
+      "Surface water" = "sur",
+      "Yes" = "gt30m",
+      "No" = "ls30m",
+      "Improved wells" = "imp_wells",
+      "Improved springs" = "imp_springs",
+      "Other" = "other"
+    )
+    df_1$var <- as.character(label_var[df_1$var_label])
+
+    finish_quintile <- function(varx, quinx) {
+      bind_cols(varx, quinx) %>% pivot_longer(4:8, names_to = "quintile")
+    }
+
+    df_composite <- readxl::read_excel(ineq_path, sheet = "DHS03", range=locations[[type]][["composite"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+      mutate(residence = "National")
+    df_urban <- readxl::read_excel(ineq_path, sheet = "DHS03", range=locations[[type]][["urban"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+      mutate(residence = "Urban")
+    df_rural <- readxl::read_excel(ineq_path, sheet = "DHS03", range=locations[[type]][["rural"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A")) %>%
+      mutate(residence = "Rural")
+
+    list(df_composite, df_urban, df_rural) %>%
+      lapply(function(x) {finish_quintile(df_1, x)}) %>%
+      bind_rows() %>% add_survey_vars()
+
+  })
+
 
   # No notes are saved from the surveys
   add_survey_vars <- function(x) {
@@ -250,7 +269,7 @@ load("data/jmp_files.rda")
 # A16:B26
 
 
-### WatSan regressions can be found here:
+### WatSan regressions can be found here (not used at this moment):
 
 ## National water:
 
