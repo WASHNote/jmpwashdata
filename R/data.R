@@ -13,7 +13,7 @@
 #' @source \url{http://www.washdata.org/}
 "jmp_files"
 
-#' JMP Hygiene inequalities per quintile data.
+#' JMP Hygiene inequalities in  per quintile data.
 #'
 #' A dataset containing the files that were downloaded from JMP to build this package.
 #'
