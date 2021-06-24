@@ -1,4 +1,4 @@
-## code to prepare `DATASET` dataset goes here
+## code to prepare `jmp_files` and download the JMP excel files
 
 library(dplyr)
 library(rio)
