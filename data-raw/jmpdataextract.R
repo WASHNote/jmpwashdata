@@ -14,6 +14,14 @@ load("data/jmp_files.rda")
     ...)
 }
 
+.extract_all_data <- function() {
+  .extract_wld_reg_data()
+  .extract_country_hh_summary_data()
+  .extract_inequalities_estimate_data()
+  .extract_inequalities_region_data()
+  .extract_inequalities_source_data()
+}
+
 .extract_wld_reg_data <- function() {
   jmp_hh_wld_path <- paste0("data-raw/WLD/", filter(jmp_files, geo == "WLD", type == "household")$filename)
   jmp_hh_reg_path <- paste0("data-raw/REG/", filter(jmp_files, geo == "REG", type == "household")$filename)
