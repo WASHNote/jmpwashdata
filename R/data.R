@@ -1,3 +1,5 @@
+### Files ###
+
 #' JMP Excel file metadata.
 #'
 #' A dataset containing the files that were downloaded from JMP to build this package.
@@ -12,6 +14,9 @@
 #' }
 #' @source \url{http://www.washdata.org/}
 "jmp_files"
+
+
+### Inequalities sources ###
 
 #' JMP Hygiene inequalities in  per quintile data.
 #'
@@ -45,20 +50,31 @@
 "jmp_inequality_sanitation_source"
 "jmp_inequality_water_source"
 
+### Inequalities estimates ###
+
 "jmp_inequality_hygiene_estimate"
 "jmp_inequality_sanitation_estimate"
 "jmp_inequality_water_estimate"
+
+### Inequalities regions ###
 
 "jmp_inequality_hygiene_region"
 "jmp_inequality_sanitation_region"
 "jmp_inequality_water_region"
 
+### Country estimates ###
+
 "jmp_wld_hygiene"
 "jmp_wld_sanitation"
 "jmp_wld_water"
+
+### Regional estimates ###
 
 "jmp_reg_hygiene"
 "jmp_reg_sanitation"
 "jmp_reg_water"
 
+### Country sources ###
 
+"jmp_household_watsan_sources"
+"jmp_household_hygiene_sources"

@@ -15,8 +15,8 @@ load("data/jmp_files.rda")
 }
 
 .extract_all_data <- function() {
-  .extract_wld_reg_data()
-  .extract_country_hh_summary_data()
+  #.extract_wld_reg_data()
+  #.extract_country_hh_summary_data()
   .extract_inequalities_estimate_data()
   .extract_inequalities_region_data()
   .extract_inequalities_source_data()
@@ -163,6 +163,7 @@ load("data/jmp_files.rda")
 
 .extract_inequalities_source_data <- function() {
   countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
+  #%>% slice_head(n = 2)
 
   use_data <- usethis::use_data
 
@@ -199,8 +200,8 @@ load("data/jmp_files.rda")
 ## water quintile estimates
 # offset + 5 per residence + 4 per quintile
 
-.quintile_name <- function(n) {
-  c("Poorest", "Poor", "Middle", "Rich", "Richest")[n]
+.get_quintile_names <- function() {
+  c("Poorest", "Poor", "Middle", "Rich", "Richest")
 }
 
 .shift <- function(old_anchor, x, y) {
@@ -276,16 +277,26 @@ load("data/jmp_files.rda")
 .label_var_list <- function() {
   common <- list(
     "Improved" = "imp",
+    "1 Improved" = "imp",
     "Not Improved" = "not_imp",
+    "2 Not Improved" = "not imp",
     "Basic" = "bas",
+    "1 Basic" = "bas",
+    "1,00 Basic" = "bas",
     "Limited" = "lim",
+    "2 Limited" = "lim",
+    "2,00 Limited" = "lim",
     "Other unimproved" = "unimp",
+    "3 Other unimproved" = "unimp",
     "Open defecation" = "od",
+    "4 Open defecation" = "od",
     "Surface water" = "sur",
+    "4 Surface water" = "sur",
     "Improved wells" = "imp_wells",
     "Improved springs" = "imp_springs",
     "Other" = "other",
     "No facility" = "nfac",
+    "3,00 No facility" = "nfac",
     "nowhere" = "nowhere",
     "in dwelling/yard/plot" = "premises",
     "somewhere else" = "else"
@@ -302,7 +313,9 @@ load("data/jmp_files.rda")
       common,
       list(
         "Yes" = "shared",
-        "No" = "not_shared"
+        "No" = "not_shared",
+        "1 Yes" = "shared",
+        "2 No" = "not_shared"
       )
     ),
     "hygiene" = common
@@ -384,7 +397,8 @@ load("data/jmp_files.rda")
   df_1
 }
 
-
+# .get_quintile_names() is used to retrieve consistent column names; after examination, and probably due to the excel charts, the actual order of each quintile is consistent across sheets so this should be safe if it stays this way
+# explicit renaming in case one needs to ever recover the original columns later on
 .get_inequalities_source_by_sheet <- function(ineq_path, iso3, sheet_name, service_type) {
   locations <- .source_range_list()
 
@@ -392,17 +406,25 @@ load("data/jmp_files.rda")
 
   # get data per residence type
   df_composite <- suppressMessages(
-    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["composite"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["composite"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a"))
+  )
+  names(df_composite) <- .get_quintile_names()
+  df_composite <- df_composite %>%
     mutate(residence = "National")
-  )
+
   df_urban <- suppressMessages(
-    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["urban"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["urban"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a"))
+  )
+  names(df_urban) <- .get_quintile_names()
+  df_urban <- df_urban %>%
     mutate(residence = "Urban")
-  )
+
   df_rural <- suppressMessages(
-    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["rural"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a")) %>%
-    mutate(residence = "Rural")
+    readxl::read_excel(ineq_path, sheet = sheet_name, range=locations[[service_type]][["rural"]], col_names = TRUE, col_types = rep("numeric", 5), na = c("","N/A","N/a"))
   )
+  names(df_rural) <- .get_quintile_names()
+  df_rural <- df_rural %>%
+    mutate(residence = "Rural")
 
   # combine all data and pivot_longer with .finish_quintile
   list(df_composite, df_urban, df_rural) %>%
