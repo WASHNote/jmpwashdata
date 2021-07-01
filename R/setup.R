@@ -18,14 +18,14 @@
 }
 
 .install_requirements <- function() {
-  install.packages("renv")
-  install.packages("dplyr")
-  install.packages("usethis")
-  install.packages("rmarkdown")
-  install.packages("roxygen2")
-  install.packages("rio")
-  install.packages("XML")
-  install.packages("stringr")
-  install.packages("tidyr")
+  utils::install.packages("renv")
+  utils::install.packages("dplyr")
+  utils::install.packages("usethis")
+  utils::install.packages("rmarkdown")
+  utils::install.packages("roxygen2")
+  utils::install.packages("rio")
+  utils::install.packages("XML")
+  utils::install.packages("stringr")
+  utils::install.packages("tidyr")
 }
 
