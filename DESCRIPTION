@@ -5,7 +5,7 @@ Version: 0.1.1
 Author: Nicolas Dickinson
 Maintainer: Nicolas Dickinson <dickinson@washnote.com>
 Description: As a convenience, this package reproduces a snapshot of the JMP WASH household (currently as of July 2021), WASH in schools and WASH in health care facilities data that is normally available in Excel sheets on https://washdata.org. 
-    The data is loaded in the package at build time to avoid burdening washdata.org with unnecessary requests since the data is updated at the moment no more often than once a year. 
+    The data is loaded into the package rather than accessed through the JMP website in order to avoid burdening washdata.org with unnecessary requests. 
     Some helper functions are provided to access specific data and indicators.
 License: AGPL-3 + file LICENSE
 Encoding: UTF-8

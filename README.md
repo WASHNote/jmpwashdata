@@ -6,49 +6,25 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of jmpwashdata is to …
+The goal of jmpwashdata is to provide a snapshot of the JMP WASH
+household, WASH in schools and WASH in health care facilities data that
+is normally available in Excel sheets on <https://washdata.org>. The
+data is loaded in the package since the data is updated at the moment no
+more often than once a year. Helper functions are provided to access
+specific data and indicators.
 
 ## Installation
 
-You can install the released version of jmpwashdata from
-[CRAN](https://CRAN.R-project.org) with:
+You cannot yet install the (unreleased) version of jmpwashdata from
+[CRAN](https://CRAN.R-project.org). You must build it from source and
+install that.
+
+# Install JMP package
+
+Once you have built a binary file, install it locally. For example:
 
 ``` r
-install.packages("jmpwashdata")
+if (length(grep(pattern = "jmpwashdata", x = installed.packages()[,"Package"])) == 0) {
+  devtools::install_local("~/RStudio/packages/jmpwashdata_0.1.1.tar.gz")
+}
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(jmpwashdata)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
