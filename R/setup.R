@@ -27,5 +27,7 @@
   utils::install.packages("XML")
   utils::install.packages("stringr")
   utils::install.packages("tidyr")
+  utils::install.packages("testthat")
+  utils::install.packages("devtools")
 }
 
