@@ -29,3 +29,6 @@
   utils::install.packages("tidyr")
 }
 
+.documentation <- function() {
+  devtools::build_readme()
+}
