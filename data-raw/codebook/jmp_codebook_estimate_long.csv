@@ -1,0 +1,29 @@
+﻿varname_short,unit,connector,object,description
+wat_imp,the population,using,improved drinking water sources,Proportion of the population using improved drinking water sources
+wat_bas,the population,using,basic drinking water services,Proportion of the population using basic drinking water services
+wat_lim,the population,using,limited drinking water services,Proportion of the population using limited drinking water services
+wat_unimp,the population,using,unimproved drinking water sources,Proportion of the population using unimproved drinking water sources
+wat_sur,the population,using,no drinking water facility (surface water),Proportion of the population using no drinking water facility (surface water)
+wat_pip,the population,using,piped improved drinking water sources,Proportion of the population using piped improved drinking water sources
+wat_npip,the population,using,non-piped improved drinking water sources,Proportion of the population using non-piped improved drinking water sources
+wat_premises,the population,using,improved water sources which are accessible on premises,Proportion of the population using improved water sources which are accessible on premises
+wat_available,the population,using,improved water sources which are available when needed,Proportion of the population using improved water sources which are available when needed
+wat_quality,the population,using,improved water sources which are free from contamination,Proportion of the population using improved water sources which are free from contamination
+wat_sm,the population,using,safely managed drinking water services,Proportion of the population using safely managed drinking water services
+san_imp,the population,using,improved sanitation facilities,Proportion of the population using improved sanitation facilities
+san_bas,the population,using,basic sanitation services (improved sanitation facilities which are not shared),Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)
+san_lim,the population,using,limited sanitation services (improved sanitation facilities which are shared),Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)
+san_unimp,the population,using,unimproved sanitation facilities ,Proportion of the population using unimproved sanitation facilities 
+san_od,the population,using,no sanitation facilities (open defecation),Proportion of the population using no sanitation facilities (open defecation)
+san_lat,the population,using,improved pit latrines or other on-site improved facilities (including shared),Proportion of the population using improved pit latrines or other on-site improved facilities (including shared)
+san_sep,the population,using,improved sanitation facilties connected to septic tanks (including shared),Proportion of the population using improved sanitation facilties connected to septic tanks (including shared)
+san_sew,the population,using,improved sanitation facilities connected to sewers (including shared),Proportion of the population using improved sanitation facilities connected to sewers (including shared)
+san_sdo_sm,the population,using,on-site sanitation facilities where wastes are safely disposed of in situ,Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ
+san_fst_sm,the population,using,on-site sanitation facilities where faecal sludge is removed and treated off-site,Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site
+san_sew_sm,the population,using,sewer connections where wastewater reaches treatment plants and is treated off-site,Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site
+san_sm,the population,using,safely managed sanitation services,Proportion of the population using safely managed sanitation services
+san_onsite_sm,the population,using,safely managed sanitation services from onsite components,Proportion of the population using safely managed sanitation services from onsite components
+hyg_bas,the population,with access to ,a handwashing facility with soap and water at home (basic hygiene service),Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)
+hyg_lim,the population,with access to ,limited handwashing services (a handwashing facility at home lacking soap and/or water),Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)
+hyg_nfac,the population,with access to ,no handwashing facility,Proportion of the population with access to no handwashing facility
+,,,,

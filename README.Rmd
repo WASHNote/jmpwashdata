@@ -18,19 +18,24 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of jmpwashdata is to provide a snapshot of the JMP WASH household, WASH in schools and WASH in health care facilities data that is normally available in Excel sheets on https://washdata.org. The data is loaded in the package since the data is updated at the moment no more often than once a year. Helper functions are provided to access specific data and indicators.
+The goal of jmpwashdata is to provide a snapshot of the JMP WASH household, WASH in schools and WASH in health care facilities data that is normally available in Excel sheets on https://washdata.org. The data is loaded in the package since the data is updated at the moment no more often than once a year. 
 
 ## Installation
 
-You cannot yet install the (unreleased) version of jmpwashdata from [CRAN](https://CRAN.R-project.org). You must build it from source and install that.
+You cannot yet install from [CRAN](https://CRAN.R-project.org). You must build it from source and install that. The easiest way to do this is with devtools.
 
-# Install JMP package
+# Install JMP package with devtools
 
 Once you have built a binary file, install it locally. For example:
 
-
 ```{r, eval=F, echo=T}
 if (length(grep(pattern = "jmpwashdata", x = installed.packages()[,"Package"])) == 0) {
-  devtools::install_local("~/RStudio/packages/jmpwashdata_0.1.1.tar.gz")
+  devtools::install_local("~/RStudio/packages/jmpwashdata_0.1.2.tar.gz")
 }
 ```
+
+# Changes
+
+- v.0.1.2 October 2021 Update of data files to include the new world and region files and changes in other files and to add more error handling. Includes now the data summary sheets found in the inequality files parsed to be in a cleaner long format.
+- v.0.1.1 July 2021 New published data files extracted with the 2019 and 2020 data sets from JMP Excel sheets.
+- v.0.1.0 June 2021 Extraction of 2017 JMP files.

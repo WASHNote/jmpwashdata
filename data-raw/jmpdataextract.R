@@ -14,6 +14,96 @@ load("data/jmp_files.rda")
     ...)
 }
 
+# helper function for creating a codebook based on the columns in the compiled package
+.get_all_package_columns <- function() {
+  unlist_attr <- function(attr_list) {
+    unlist(lapply(attr_list, function(x) {if (is.null(x)) {""} else {x}}))
+  }
+
+  lapply(data(package = "jmpwashdata")$results[, "Item"], function(x) {
+      y <- get(x[[1]])
+
+      label_list <- unlist_attr(var_attr(y, "label"))
+      desc_list <- unlist_attr(var_attr(y, "description"))
+
+      tibble(
+        dataset = x,
+        column = names(y),
+        label = label_list,
+        desc = desc_list
+      )
+
+    }) %>% bind_rows()
+}
+
+.save_codebook_template <- function() {
+  write.csv(x = .get_all_package_columns(), file = "data-raw/codebook/codebook_template.csv")
+}
+
+.save_enriched_codebook_template <- function() {
+  write.csv(x = .enriched_codebook_template(), file = "data-raw/codebook/codebook_template_enriched.csv")
+}
+
+.enriched_codebook_template <- function() {
+  columns <- .get_all_package_columns()
+  jmp_est_wide <- read.csv(file = "data-raw/codebook/jmp_codebook_estimate_wide.csv", header = TRUE)
+
+  # need to add code to shorten names to remove the _[run]+
+
+  columns %>% mutate(
+    varname_short = str_match(string = columns$column, pattern = "(.*)_[run]+$")[,2]
+  ) %>% left_join(jmp_est_wide, by = c("varname_short"))
+
+}
+
+# using error checking code same pattern  as the labelled package
+# https://github.com/larmarange/labelled/blob/18b064a71f48644d4df79cfdfd61dcfc3aef9e80/R/var_label.R
+`var_attr<-` <- function(x, attr_name, value) {
+  if ((!is.character(value) & !is.null(value)) & !is.list(value) |
+      (is.character(value) & length(value) > 1 & length(value) != ncol(x)))
+    stop("`value` should be a named list, NULL, a single character string or a character vector of same length than the number of columns in `x`",
+         call. = FALSE)
+  if (is.character(value) & length(value) == 1) {
+    value <- as.list(rep(value, ncol(x)))
+    names(value) <- names(x)
+  }
+  if (is.character(value) & length(value) == ncol(x)) {
+    value <- as.list(value)
+    names(value) <- names(x)
+  }
+  if (is.null(value)) {
+    value <- as.list(rep(1, ncol(x)))
+    names(value) <- names(x)
+    value <- lapply(value, function(x) {
+      x <- NULL
+    })
+  }
+
+  if (!all(names(value) %in% names(x)))
+    stop("some variables not found in x")
+
+  value <- value[names(value) %in% names(x)]
+
+  for (var in names(value)) {
+    if (length(value[[var]]) > 1)
+      stop("each attribute `value` should be a single value or NULL",
+           call. = FALSE)
+    attr(x[[var]], attr_name) <- value[[var]]
+  }
+  x
+}
+# same as above
+var_attr <- function(x, attr_name, unlist = FALSE) {
+  r <- lapply(x, function(y, unlist = FALSE) {
+    attr(y, attr_name, exact = TRUE)
+  })
+  if (unlist) {
+    r <- lapply(r, function(y){if (is.null(y)) "" else y})
+    base::unlist(r, use.names = TRUE)
+  } else
+    r
+}
+
 # will run all extraction functions and save messages to a table
 # would be even better to generalize this to all types of messages into a log file
 .extract_all_data <- function() {
@@ -37,7 +127,7 @@ load("data/jmp_files.rda")
     #message("length(names(warnings())) = ", length(names(warnings())))
     tibble(
       procedure = fn,
-      messages = c(names(warnings()), error_txt),
+      message = c(names(warnings()), error_txt),
       message_type = c(rep("warning", times = length(names(warnings()))), rep("error", times = length(error_txt)))
     )
     assign("last.warning", NULL, envir = baseenv())
@@ -51,13 +141,6 @@ load("data/jmp_files.rda")
   if (nrow(jmp_extraction_messages %>% filter(message_type == "error"))>0) {
     stop("Errors were produced during the extraction of the data sets. Please check the data/jmp_extraction_messages.rda to find the list of errors.")
   }
-
-  # .extract_wld_reg_data()
-  # .extract_country_hh_summary_data()
-  # .extract_inequalities_estimate_data()
-  # .extract_inequalities_region_data()
-  # .extract_inequalities_source_data()
-  # .extract_inequalities_data_summary()
 }
 
 .extract_wld_reg_data <- function() {
@@ -86,7 +169,8 @@ load("data/jmp_files.rda")
 
 
 ## Example of extracting Burkina Faso regression data from a country file
-# We do not need this since it is already contained in the world file
+# Keeping for future error checking
+# In principle, we do not need this since it is already contained in the world file
 # jmp_bfa_estimate_data <- .get_jmp_tibble(jmp_hh_bfa_path, sheet = "Regressions", range="A25:AD79", col_names = TRUE)
 # jmp_bfa_estimate_data$iso3 <- "BFA"
 # jmp_bfa_estimate_data$name <- jmp_bfa_estimate_data$country
@@ -104,15 +188,15 @@ load("data/jmp_files.rda")
 
     watsan_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="A5:CL208", col_names = TRUE, col_types = c(rep("text", 2), rep("numeric", 88)))
     watsan_summary_data <- watsan_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
-    watsan_use_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="CV5:GD208", col_names = TRUE, col_types = rep("text", 87))
-    watsan_use_summary_data <- watsan_use_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
+    #watsan_use_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="CV5:GD208", col_names = TRUE, col_types = rep("text", 87))
+    #watsan_use_summary_data <- watsan_use_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
 
     #watsan_summary <- bind_cols(watsan_summary_data, watsan_use_summary_data)
     watsan_summary <- watsan_summary_data
 
     watsan_summary$iso3 <- x
 
-    watsan_summary
+    watsan_summary %>% .lengthen_household_sources()
   }) %>% bind_rows()
 
   jmp_household_hygiene_sources <- lapply(countries$geo, function(x) {
@@ -122,12 +206,15 @@ load("data/jmp_files.rda")
 
     hyg_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="CM5:CU208", col_names = TRUE, col_types = c(rep("text", 2), rep("numeric", 7)))
     hyg_summary_data <- hyg_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
-    hyg_use_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="GE5:GJ208", col_names = TRUE, col_types = rep("text", 6))
-    hyg_use_summary_data <- hyg_use_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
-    hyg_summary <- bind_cols(hyg_summary_data, hyg_use_summary_data)
+    #hyg_use_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="GE5:GJ208", col_names = TRUE, col_types = rep("text", 6))
+    #hyg_use_summary_data <- hyg_use_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
+
+    #hyg_summary <- bind_cols(hyg_summary_data, hyg_use_summary_data)
+    hyg_summary <- hyg_summary_data
+
     hyg_summary$iso3 <- x
 
-    hyg_summary
+    hyg_summary %>% .lengthen_household_sources()
   }) %>% bind_rows()
 
   usethis::use_data(jmp_household_watsan_sources,
@@ -711,3 +798,44 @@ load("data/jmp_files.rda")
     `h_` = "Hygiene"
   )
 }
+
+.suffix_to_residence <- function() {
+  c(
+    `_n` = "National",
+    `_u` = "Urban",
+    `_r` = "Rural"
+  )
+}
+
+.lengthen_household_sources <- function(household_source) {
+  lapply(names(.prefix_to_sector()), function(prefix) {
+      lapply(names(.suffix_to_residence()), function(suffix) {
+        if (length(names(household_source %>% select(starts_with(prefix)) %>% select(ends_with(suffix))))) {
+          source_slice <- household_source
+          if ("h_source" %in% names(source_slice)) {
+            source_slice <- source_slice %>% rename(source = h_source, type = h_type, year = h_year)
+          }
+          source_slice <- source_slice %>%
+            select(iso3, source, type, year, starts_with(prefix)) %>%
+            select(iso3, source, type, year, ends_with(suffix)) %>%
+            filter(!grepl("[]].", source))
+          #str_match(string = names(jmp_household_hygiene_sources), pattern = "h_(.*)_[nur].")[,3]
+          if (nrow(source_slice) > 0) {
+            source_slice %>%
+              pivot_longer(
+                cols = ends_with(suffix),
+                names_to = "varname",
+                values_to = "val"
+              ) %>%
+              filter(!is.na(val)) %>%
+              mutate(
+                var = str_match(string = varname, pattern = "^(.*[hws]+_(.*)_[nur]+)$")[,3],
+                sector = .prefix_to_sector()[prefix],
+                residence = .suffix_to_residence()[suffix]
+              )
+          } else {NULL}
+        } else {NULL}
+      }) %>% bind_rows()
+  }) %>% bind_rows()
+}
+

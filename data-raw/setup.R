@@ -17,18 +17,7 @@
   usethis::use_data_raw()
 }
 
-.install_requirements <- function() {
-  utils::install.packages("renv")
-  utils::install.packages("dplyr")
-  utils::install.packages("usethis")
-  utils::install.packages("rmarkdown")
-  utils::install.packages("roxygen2")
-  utils::install.packages("rio")
-  utils::install.packages("XML")
-  utils::install.packages("stringr")
-  utils::install.packages("tidyr")
-}
-
-.documentation <- function() {
+.prep_for_build <- function() {
+  renv::snapshot()
   devtools::build_readme()
 }

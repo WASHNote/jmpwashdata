@@ -1,0 +1,32 @@
+﻿varname_short,unit,connector,object,description
+w_imp,the population,using,improved drinking water sources,The proportion of the population using improved drinking water sources
+w_pip,the population,using,piped water sources,The proportion of the population using piped water sources
+w_sur,the population,using,surface water,The proportion of the population using surface water
+w_30min,the population,using,water which takes no more than 30 minutes to collect,The proportion of the population using water which takes no more than 30 minutes to collect
+w_premises,improved drinking water sources,which,are located on premises,The proportion of improved drinking water sources which are located on premises
+w_available,improved drinking water sources,which,are available when needed,The proportion of improved drinking water sources which are available when needed
+w_quality,improved drinking water sources,which,are free from contamination,The proportion of improved drinking water sources which are free from contamination
+s_imp,the population,using,improved sanitation facilities,The proportion of the population using improved sanitation facilities
+s_sew,the population,using,improved sanitation facilities connected to sewer lines,The proportion of the population using improved sanitation facilities connected to sewer lines
+s_sep,the population,using,improved sanitation facilities connected to septic tanks,The proportion of the population using improved sanitation facilities connected to septic tanks
+s_lat,the population,using,improved latrines and other improved sanitation facilities,The proportion of the population using improved latrines and other improved sanitation facilities
+s_od,the population,practising ,open defecation,The proportion of the population practising open defecation
+s_sew_net,waste from households who report having sewer connections,which,reaches sewer networks,The proportion of waste from households who report having sewer connections which reaches sewer networks
+s_sew_rtp,waste which reaches sewer networks,which,reaches treatment plants,The proportion of waste which reaches sewer networks which reaches treatment plants
+s_sep_con,waste from households who report having septic tank connections,which,are contained,The proportion of waste from households who report having septic tank connections which are contained
+s_sep_nemp,waste from households who report having septic tank connections,which,are not emptied,The proportion of waste from households who report having septic tank connections which are not emptied
+s_sep_ebo,waste from households who report having septic tank connections,which,are emptied and buried onsite,The proportion of waste from households who report having septic tank connections which are emptied and buried onsite
+s_sep_edl,waste from households who report having septic tank connections,which,are emptied and discharged locally,The proportion of waste from households who report having septic tank connections which are emptied and discharged locally
+s_sep_ero,waste from households who report having septic tank connections,which,are emptied and removed offsite,The proportion of waste from households who report having septic tank connections which are emptied and removed offsite
+s_sep_dtp,waste from households who report having septic tank connections,which,are delivered to treatment plant,The proportion of waste from households who report having septic tank connections which are delivered to treatment plant
+s_lat_con,waste from households who report using improved latrines,which,are contained,The proportion of waste from households who report using improved latrines which are contained
+s_lat_nemp,waste from households who report using improved latrines,which,Latrines: not emptied,The proportion of waste from households who report using improved latrines which Latrines: not emptied
+s_lat_ebo,waste from households who report using improved latrines,which,Latrines: emptied and buried onsite,The proportion of waste from households who report using improved latrines which Latrines: emptied and buried onsite
+s_lat_edl,waste from households who report using improved latrines,which,Latrines: emptied and discharged locally,The proportion of waste from households who report using improved latrines which Latrines: emptied and discharged locally
+s_lat_ero,waste from households who report using improved latrines,which,Latrines: emptied and removed offsite,The proportion of waste from households who report using improved latrines which Latrines: emptied and removed offsite
+s_lat_dtp,waste from households who report using improved latrines,which,Latrines: delivered to treatment plant,The proportion of waste from households who report using improved latrines which Latrines: delivered to treatment plant
+s_treat_wtp,waste reaching wastewater treatment plants,which,receives secondary treatment or better,The proportion of waste reaching wastewater treatment plants which receives secondary treatment or better
+s_treat_fstp,waste reaching faecal sludge treatment plants,which,receives the equivalent of secondary treatment or better,The proportion of waste reaching faecal sludge treatment plants which receives the equivalent of secondary treatment or better
+s_shared,the population using improved sanitation facilities,which,shares sanitation facilities among two households or more,The proportion of the population using improved sanitation facilities which shares sanitation facilities among two households or more
+hw_fac,the population,with access to,a handwashing facility in the home,The proportion of the population with access to a handwashing facility in the home
+hw_hwws,the population,with access to,a handwashing facilty in the home with water and soap,The proportion of the population with access to a handwashing facilty in the home with water and soap

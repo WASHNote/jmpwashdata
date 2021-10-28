@@ -1,0 +1,385 @@
+"","dataset","column","label","desc","varname_short","unit","connector","object","description"
+"1","jmp_extraction_messages","procedure","Extraction procedure","The extraction procedure during which a message is received.",NA,NA,NA,NA,NA
+"2","jmp_extraction_messages","message_type","","",NA,NA,NA,NA,NA
+"3","jmp_extraction_messages","message","","",NA,NA,NA,NA,NA
+"4","jmp_files","path","","",NA,NA,NA,NA,NA
+"5","jmp_files","filename","","",NA,NA,NA,NA,NA
+"6","jmp_files","type","","",NA,NA,NA,NA,NA
+"7","jmp_files","geo","","",NA,NA,NA,NA,NA
+"8","jmp_files","date","","",NA,NA,NA,NA,NA
+"9","jmp_household_hygiene_sources","iso3","","",NA,NA,NA,NA,NA
+"10","jmp_household_hygiene_sources","source","","",NA,NA,NA,NA,NA
+"11","jmp_household_hygiene_sources","type","","",NA,NA,NA,NA,NA
+"12","jmp_household_hygiene_sources","year","","",NA,NA,NA,NA,NA
+"13","jmp_household_hygiene_sources","varname","","",NA,NA,NA,NA,NA
+"14","jmp_household_hygiene_sources","val","","",NA,NA,NA,NA,NA
+"15","jmp_household_hygiene_sources","var","","",NA,NA,NA,NA,NA
+"16","jmp_household_hygiene_sources","sector","","",NA,NA,NA,NA,NA
+"17","jmp_household_hygiene_sources","residence","","",NA,NA,NA,NA,NA
+"18","jmp_household_watsan_sources","iso3","","",NA,NA,NA,NA,NA
+"19","jmp_household_watsan_sources","source","","",NA,NA,NA,NA,NA
+"20","jmp_household_watsan_sources","type","","",NA,NA,NA,NA,NA
+"21","jmp_household_watsan_sources","year","","",NA,NA,NA,NA,NA
+"22","jmp_household_watsan_sources","varname","","",NA,NA,NA,NA,NA
+"23","jmp_household_watsan_sources","val","","",NA,NA,NA,NA,NA
+"24","jmp_household_watsan_sources","var","","",NA,NA,NA,NA,NA
+"25","jmp_household_watsan_sources","sector","","",NA,NA,NA,NA,NA
+"26","jmp_household_watsan_sources","residence","","",NA,NA,NA,NA,NA
+"27","jmp_inequality_hygiene_region","var_type","","",NA,NA,NA,NA,NA
+"28","jmp_inequality_hygiene_region","var_label","","",NA,NA,NA,NA,NA
+"29","jmp_inequality_hygiene_region","var","","",NA,NA,NA,NA,NA
+"30","jmp_inequality_hygiene_region","region","","",NA,NA,NA,NA,NA
+"31","jmp_inequality_hygiene_region","value","","",NA,NA,NA,NA,NA
+"32","jmp_inequality_hygiene_region","main_source","","",NA,NA,NA,NA,NA
+"33","jmp_inequality_hygiene_region","main_source_code","","",NA,NA,NA,NA,NA
+"34","jmp_inequality_hygiene_region","year_code","","",NA,NA,NA,NA,NA
+"35","jmp_inequality_hygiene_region","iso3","","",NA,NA,NA,NA,NA
+"36","jmp_inequality_hygiene_region","year","","",NA,NA,NA,NA,NA
+"37","jmp_inequality_hygiene_source","var_type","","",NA,NA,NA,NA,NA
+"38","jmp_inequality_hygiene_source","var_label","","",NA,NA,NA,NA,NA
+"39","jmp_inequality_hygiene_source","var","","",NA,NA,NA,NA,NA
+"40","jmp_inequality_hygiene_source","residence","","",NA,NA,NA,NA,NA
+"41","jmp_inequality_hygiene_source","quintile","","",NA,NA,NA,NA,NA
+"42","jmp_inequality_hygiene_source","value","","",NA,NA,NA,NA,NA
+"43","jmp_inequality_hygiene_source","main_source","","",NA,NA,NA,NA,NA
+"44","jmp_inequality_hygiene_source","main_source_code","","",NA,NA,NA,NA,NA
+"45","jmp_inequality_hygiene_source","year_code","","",NA,NA,NA,NA,NA
+"46","jmp_inequality_hygiene_source","iso3","","",NA,NA,NA,NA,NA
+"47","jmp_inequality_hygiene_source","year","","",NA,NA,NA,NA,NA
+"48","jmp_inequality_sanitation_estimate","residence","","",NA,NA,NA,NA,NA
+"49","jmp_inequality_sanitation_estimate","year","","",NA,NA,NA,NA,NA
+"50","jmp_inequality_sanitation_estimate","iso3","","",NA,NA,NA,NA,NA
+"51","jmp_inequality_sanitation_estimate","san_bas","","",NA,NA,NA,NA,NA
+"52","jmp_inequality_sanitation_estimate","san_lim","","",NA,NA,NA,NA,NA
+"53","jmp_inequality_sanitation_estimate","san_unimp","","",NA,NA,NA,NA,NA
+"54","jmp_inequality_sanitation_estimate","san_od","","",NA,NA,NA,NA,NA
+"55","jmp_inequality_sanitation_estimate","quintile","","",NA,NA,NA,NA,NA
+"56","jmp_inequality_sanitation_estimate","quintile_n","","","quintile",NA,NA,NA,NA
+"57","jmp_inequality_sanitation_region","var_type","","",NA,NA,NA,NA,NA
+"58","jmp_inequality_sanitation_region","var_label","","",NA,NA,NA,NA,NA
+"59","jmp_inequality_sanitation_region","var","","",NA,NA,NA,NA,NA
+"60","jmp_inequality_sanitation_region","region","","",NA,NA,NA,NA,NA
+"61","jmp_inequality_sanitation_region","value","","",NA,NA,NA,NA,NA
+"62","jmp_inequality_sanitation_region","main_source","","",NA,NA,NA,NA,NA
+"63","jmp_inequality_sanitation_region","main_source_code","","",NA,NA,NA,NA,NA
+"64","jmp_inequality_sanitation_region","year_code","","",NA,NA,NA,NA,NA
+"65","jmp_inequality_sanitation_region","iso3","","",NA,NA,NA,NA,NA
+"66","jmp_inequality_sanitation_region","year","","",NA,NA,NA,NA,NA
+"67","jmp_inequality_sanitation_source","var_type","","",NA,NA,NA,NA,NA
+"68","jmp_inequality_sanitation_source","var_label","","",NA,NA,NA,NA,NA
+"69","jmp_inequality_sanitation_source","var","","",NA,NA,NA,NA,NA
+"70","jmp_inequality_sanitation_source","residence","","",NA,NA,NA,NA,NA
+"71","jmp_inequality_sanitation_source","quintile","","",NA,NA,NA,NA,NA
+"72","jmp_inequality_sanitation_source","value","","",NA,NA,NA,NA,NA
+"73","jmp_inequality_sanitation_source","main_source","","",NA,NA,NA,NA,NA
+"74","jmp_inequality_sanitation_source","main_source_code","","",NA,NA,NA,NA,NA
+"75","jmp_inequality_sanitation_source","year_code","","",NA,NA,NA,NA,NA
+"76","jmp_inequality_sanitation_source","iso3","","",NA,NA,NA,NA,NA
+"77","jmp_inequality_sanitation_source","year","","",NA,NA,NA,NA,NA
+"78","jmp_inequality_summary_quintile_data","iso3","","",NA,NA,NA,NA,NA
+"79","jmp_inequality_summary_quintile_data","year","","",NA,NA,NA,NA,NA
+"80","jmp_inequality_summary_quintile_data","data_source","","",NA,NA,NA,NA,NA
+"81","jmp_inequality_summary_quintile_data","row","","",NA,NA,NA,NA,NA
+"82","jmp_inequality_summary_quintile_data","var1","","",NA,NA,NA,NA,NA
+"83","jmp_inequality_summary_quintile_data","var2","","",NA,NA,NA,NA,NA
+"84","jmp_inequality_summary_quintile_data","varname","","",NA,NA,NA,NA,NA
+"85","jmp_inequality_summary_quintile_data","val","","",NA,NA,NA,NA,NA
+"86","jmp_inequality_summary_quintile_data","n","","",NA,NA,NA,NA,NA
+"87","jmp_inequality_summary_quintile_data","quintile","","",NA,NA,NA,NA,NA
+"88","jmp_inequality_summary_quintile_data","var","","",NA,NA,NA,NA,NA
+"89","jmp_inequality_summary_quintile_data","var_type","","",NA,NA,NA,NA,NA
+"90","jmp_inequality_summary_region_data","iso3","","",NA,NA,NA,NA,NA
+"91","jmp_inequality_summary_region_data","year","","",NA,NA,NA,NA,NA
+"92","jmp_inequality_summary_region_data","data_source","","",NA,NA,NA,NA,NA
+"93","jmp_inequality_summary_region_data","row","","",NA,NA,NA,NA,NA
+"94","jmp_inequality_summary_region_data","var1","","",NA,NA,NA,NA,NA
+"95","jmp_inequality_summary_region_data","var2","","",NA,NA,NA,NA,NA
+"96","jmp_inequality_summary_region_data","varname","","",NA,NA,NA,NA,NA
+"97","jmp_inequality_summary_region_data","region","","",NA,NA,NA,NA,NA
+"98","jmp_inequality_summary_region_data","val","","",NA,NA,NA,NA,NA
+"99","jmp_inequality_summary_region_data","n","","",NA,NA,NA,NA,NA
+"100","jmp_inequality_summary_region_data","var","","",NA,NA,NA,NA,NA
+"101","jmp_inequality_summary_region_data","var_type","","",NA,NA,NA,NA,NA
+"102","jmp_inequality_water_estimate","residence","","",NA,NA,NA,NA,NA
+"103","jmp_inequality_water_estimate","year","","",NA,NA,NA,NA,NA
+"104","jmp_inequality_water_estimate","iso3","","",NA,NA,NA,NA,NA
+"105","jmp_inequality_water_estimate","wat_bas","","",NA,NA,NA,NA,NA
+"106","jmp_inequality_water_estimate","wat_lim","","",NA,NA,NA,NA,NA
+"107","jmp_inequality_water_estimate","wat_unimp","","",NA,NA,NA,NA,NA
+"108","jmp_inequality_water_estimate","wat_sur","","",NA,NA,NA,NA,NA
+"109","jmp_inequality_water_estimate","quintile","","",NA,NA,NA,NA,NA
+"110","jmp_inequality_water_estimate","quintile_n","","","quintile",NA,NA,NA,NA
+"111","jmp_inequality_water_region","var_type","","",NA,NA,NA,NA,NA
+"112","jmp_inequality_water_region","var_label","","",NA,NA,NA,NA,NA
+"113","jmp_inequality_water_region","var","","",NA,NA,NA,NA,NA
+"114","jmp_inequality_water_region","region","","",NA,NA,NA,NA,NA
+"115","jmp_inequality_water_region","value","","",NA,NA,NA,NA,NA
+"116","jmp_inequality_water_region","main_source","","",NA,NA,NA,NA,NA
+"117","jmp_inequality_water_region","main_source_code","","",NA,NA,NA,NA,NA
+"118","jmp_inequality_water_region","year_code","","",NA,NA,NA,NA,NA
+"119","jmp_inequality_water_region","iso3","","",NA,NA,NA,NA,NA
+"120","jmp_inequality_water_region","year","","",NA,NA,NA,NA,NA
+"121","jmp_inequality_water_source","var_type","","",NA,NA,NA,NA,NA
+"122","jmp_inequality_water_source","var_label","","",NA,NA,NA,NA,NA
+"123","jmp_inequality_water_source","var","","",NA,NA,NA,NA,NA
+"124","jmp_inequality_water_source","residence","","",NA,NA,NA,NA,NA
+"125","jmp_inequality_water_source","quintile","","",NA,NA,NA,NA,NA
+"126","jmp_inequality_water_source","value","","",NA,NA,NA,NA,NA
+"127","jmp_inequality_water_source","main_source","","",NA,NA,NA,NA,NA
+"128","jmp_inequality_water_source","main_source_code","","",NA,NA,NA,NA,NA
+"129","jmp_inequality_water_source","year_code","","",NA,NA,NA,NA,NA
+"130","jmp_inequality_water_source","iso3","","",NA,NA,NA,NA,NA
+"131","jmp_inequality_water_source","year","","",NA,NA,NA,NA,NA
+"132","jmp_reg_hygiene","region","","",NA,NA,NA,NA,NA
+"133","jmp_reg_hygiene","year","","",NA,NA,NA,NA,NA
+"134","jmp_reg_hygiene","pop_n","","","pop",NA,NA,NA,NA
+"135","jmp_reg_hygiene","prop_u","","","prop",NA,NA,NA,NA
+"136","jmp_reg_hygiene","hyg_bas_n","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"137","jmp_reg_hygiene","hyg_lim_n","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"138","jmp_reg_hygiene","hyg_nfac_n","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"139","jmp_reg_hygiene","arc_hyg_bas_n","","","arc_hyg_bas",NA,NA,NA,NA
+"140","jmp_reg_hygiene","hyg_bas_r","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"141","jmp_reg_hygiene","hyg_lim_r","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"142","jmp_reg_hygiene","hyg_nfac_r","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"143","jmp_reg_hygiene","arc_hyg_bas_r","","","arc_hyg_bas",NA,NA,NA,NA
+"144","jmp_reg_hygiene","hyg_bas_u","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"145","jmp_reg_hygiene","hyg_lim_u","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"146","jmp_reg_hygiene","hyg_nfac_u","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"147","jmp_reg_hygiene","arc_hyg_bas_u","","","arc_hyg_bas",NA,NA,NA,NA
+"148","jmp_reg_hygiene","sl","","",NA,NA,NA,NA,NA
+"149","jmp_reg_sanitation","region","","",NA,NA,NA,NA,NA
+"150","jmp_reg_sanitation","year","","",NA,NA,NA,NA,NA
+"151","jmp_reg_sanitation","pop_n","","","pop",NA,NA,NA,NA
+"152","jmp_reg_sanitation","prop_u","","","prop",NA,NA,NA,NA
+"153","jmp_reg_sanitation","san_bas_n","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"154","jmp_reg_sanitation","san_lim_n","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"155","jmp_reg_sanitation","san_unimp_n","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"156","jmp_reg_sanitation","san_od_n","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"157","jmp_reg_sanitation","arc_san_bas_n","","","arc_san_bas",NA,NA,NA,NA
+"158","jmp_reg_sanitation","arc_san_od_n","","","arc_san_od",NA,NA,NA,NA
+"159","jmp_reg_sanitation","san_bas_r","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"160","jmp_reg_sanitation","san_lim_r","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"161","jmp_reg_sanitation","san_unimp_r","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"162","jmp_reg_sanitation","san_od_r","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"163","jmp_reg_sanitation","arc_san_bas_r","","","arc_san_bas",NA,NA,NA,NA
+"164","jmp_reg_sanitation","arc_san_od_r","","","arc_san_od",NA,NA,NA,NA
+"165","jmp_reg_sanitation","san_bas_u","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"166","jmp_reg_sanitation","san_lim_u","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"167","jmp_reg_sanitation","san_unimp_u","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"168","jmp_reg_sanitation","san_od_u","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"169","jmp_reg_sanitation","arc_san_bas_u","","","arc_san_bas",NA,NA,NA,NA
+"170","jmp_reg_sanitation","arc_san_od_u","","","arc_san_od",NA,NA,NA,NA
+"171","jmp_reg_sanitation","san_sm_n","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"172","jmp_reg_sanitation","san_sdo_sm_n","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"173","jmp_reg_sanitation","san_fst_sm_n","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"174","jmp_reg_sanitation","san_sew_sm_n","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"175","jmp_reg_sanitation","arc_san_sm_n","","","arc_san_sm",NA,NA,NA,NA
+"176","jmp_reg_sanitation","san_lat_n","","","san_lat",NA,NA,NA,NA
+"177","jmp_reg_sanitation","san_sep_n","","","san_sep",NA,NA,NA,NA
+"178","jmp_reg_sanitation","san_sew_n","","","san_sew",NA,NA,NA,NA
+"179","jmp_reg_sanitation","san_sm_r","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"180","jmp_reg_sanitation","san_sdo_sm_r","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"181","jmp_reg_sanitation","san_fst_sm_r","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"182","jmp_reg_sanitation","san_sew_sm_r","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"183","jmp_reg_sanitation","arc_san_sm_r","","","arc_san_sm",NA,NA,NA,NA
+"184","jmp_reg_sanitation","san_lat_r","","","san_lat",NA,NA,NA,NA
+"185","jmp_reg_sanitation","san_sep_r","","","san_sep",NA,NA,NA,NA
+"186","jmp_reg_sanitation","san_sew_r","","","san_sew",NA,NA,NA,NA
+"187","jmp_reg_sanitation","san_sm_u","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"188","jmp_reg_sanitation","san_sdo_sm_u","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"189","jmp_reg_sanitation","san_fst_sm_u","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"190","jmp_reg_sanitation","san_sew_sm_u","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"191","jmp_reg_sanitation","arc_san_sm_u","","","arc_san_sm",NA,NA,NA,NA
+"192","jmp_reg_sanitation","san_lat_u","","","san_lat",NA,NA,NA,NA
+"193","jmp_reg_sanitation","san_sep_u","","","san_sep",NA,NA,NA,NA
+"194","jmp_reg_sanitation","san_sew_u","","","san_sew",NA,NA,NA,NA
+"195","jmp_reg_sanitation","sl","","",NA,NA,NA,NA,NA
+"196","jmp_reg_water","region","","",NA,NA,NA,NA,NA
+"197","jmp_reg_water","year","","",NA,NA,NA,NA,NA
+"198","jmp_reg_water","pop_n","","","pop",NA,NA,NA,NA
+"199","jmp_reg_water","prop_u","","","prop",NA,NA,NA,NA
+"200","jmp_reg_water","wat_bas_n","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"201","jmp_reg_water","wat_lim_n","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"202","jmp_reg_water","wat_unimp_n","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"203","jmp_reg_water","wat_sur_n","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"204","jmp_reg_water","arc_wat_bas_n","","","arc_wat_bas",NA,NA,NA,NA
+"205","jmp_reg_water","wat_bas_r","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"206","jmp_reg_water","wat_lim_r","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"207","jmp_reg_water","wat_unimp_r","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"208","jmp_reg_water","wat_sur_r","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"209","jmp_reg_water","arc_wat_bas_r","","","arc_wat_bas",NA,NA,NA,NA
+"210","jmp_reg_water","wat_bas_u","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"211","jmp_reg_water","wat_lim_u","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"212","jmp_reg_water","wat_unimp_u","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"213","jmp_reg_water","wat_sur_u","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"214","jmp_reg_water","arc_wat_bas_u","","","arc_wat_bas",NA,NA,NA,NA
+"215","jmp_reg_water","wat_sm_n","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"216","jmp_reg_water","wat_premises_n","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"217","jmp_reg_water","wat_available_n","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"218","jmp_reg_water","wat_quality_n","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"219","jmp_reg_water","arc_wat_sm_n","","","arc_wat_sm",NA,NA,NA,NA
+"220","jmp_reg_water","wat_pip_n","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"221","jmp_reg_water","wat_npip_n","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"222","jmp_reg_water","wat_sm_r","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"223","jmp_reg_water","wat_premises_r","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"224","jmp_reg_water","wat_available_r","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"225","jmp_reg_water","wat_quality_r","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"226","jmp_reg_water","arc_wat_sm_r","","","arc_wat_sm",NA,NA,NA,NA
+"227","jmp_reg_water","wat_pip_r","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"228","jmp_reg_water","wat_npip_r","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"229","jmp_reg_water","wat_sm_u","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"230","jmp_reg_water","wat_premises_u","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"231","jmp_reg_water","wat_available_u","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"232","jmp_reg_water","wat_quality_u","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"233","jmp_reg_water","arc_wat_sm_u","","","arc_wat_sm",NA,NA,NA,NA
+"234","jmp_reg_water","wat_pip_u","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"235","jmp_reg_water","wat_npip_u","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"236","jmp_reg_water","sl","","",NA,NA,NA,NA,NA
+"237","jmp_wld_hygiene","name","","",NA,NA,NA,NA,NA
+"238","jmp_wld_hygiene","iso3","","",NA,NA,NA,NA,NA
+"239","jmp_wld_hygiene","year","","",NA,NA,NA,NA,NA
+"240","jmp_wld_hygiene","pop_n","","","pop",NA,NA,NA,NA
+"241","jmp_wld_hygiene","prop_u","","","prop",NA,NA,NA,NA
+"242","jmp_wld_hygiene","hyg_bas_n","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"243","jmp_wld_hygiene","hyg_lim_n","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"244","jmp_wld_hygiene","hyg_nfac_n","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"245","jmp_wld_hygiene","arc_hyg_bas_n","","","arc_hyg_bas",NA,NA,NA,NA
+"246","jmp_wld_hygiene","hyg_bas_r","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"247","jmp_wld_hygiene","hyg_lim_r","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"248","jmp_wld_hygiene","hyg_nfac_r","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"249","jmp_wld_hygiene","arc_hyg_bas_r","","","arc_hyg_bas",NA,NA,NA,NA
+"250","jmp_wld_hygiene","hyg_bas_u","","","hyg_bas","the population","with access to ","a handwashing facility with soap and water at home (basic hygiene service)","Proportion of the population with access to a handwashing facility with soap and water at home (basic hygiene service)"
+"251","jmp_wld_hygiene","hyg_lim_u","","","hyg_lim","the population","with access to ","limited handwashing services (a handwashing facility at home lacking soap and/or water)","Proportion of the population with access to limited handwashing services (a handwashing facility at home lacking soap and/or water)"
+"252","jmp_wld_hygiene","hyg_nfac_u","","","hyg_nfac","the population","with access to ","no handwashing facility","Proportion of the population with access to no handwashing facility"
+"253","jmp_wld_hygiene","arc_hyg_bas_u","","","arc_hyg_bas",NA,NA,NA,NA
+"254","jmp_wld_hygiene","sl","","",NA,NA,NA,NA,NA
+"255","jmp_wld_hygiene","region_sdg","","",NA,NA,NA,NA,NA
+"256","jmp_wld_hygiene","region_who","","",NA,NA,NA,NA,NA
+"257","jmp_wld_hygiene","region_unicef_programme","","",NA,NA,NA,NA,NA
+"258","jmp_wld_hygiene","region_unicef_reporting","","",NA,NA,NA,NA,NA
+"259","jmp_wld_menstrual_hygiene","name","","",NA,NA,NA,NA,NA
+"260","jmp_wld_menstrual_hygiene","iso3","","",NA,NA,NA,NA,NA
+"261","jmp_wld_menstrual_hygiene","year","","",NA,NA,NA,NA,NA
+"262","jmp_wld_menstrual_hygiene","survey","","",NA,NA,NA,NA,NA
+"263","jmp_wld_menstrual_hygiene","pop_f_15to49","","",NA,NA,NA,NA,NA
+"264","jmp_wld_menstrual_hygiene","prop_u","","","prop",NA,NA,NA,NA
+"265","jmp_wld_menstrual_hygiene","m_aware_n","","","m_aware",NA,NA,NA,NA
+"266","jmp_wld_menstrual_hygiene","m_priv_n","","","m_priv",NA,NA,NA,NA
+"267","jmp_wld_menstrual_hygiene","m_part_n","","","m_part",NA,NA,NA,NA
+"268","jmp_wld_menstrual_hygiene","m_mat_n","","","m_mat",NA,NA,NA,NA
+"269","jmp_wld_menstrual_hygiene","m_reuse_n","","","m_reuse",NA,NA,NA,NA
+"270","jmp_wld_menstrual_hygiene","m_single_n","","","m_single",NA,NA,NA,NA
+"271","jmp_wld_menstrual_hygiene","m_aware_r","","","m_aware",NA,NA,NA,NA
+"272","jmp_wld_menstrual_hygiene","m_priv_r","","","m_priv",NA,NA,NA,NA
+"273","jmp_wld_menstrual_hygiene","m_part_r","","","m_part",NA,NA,NA,NA
+"274","jmp_wld_menstrual_hygiene","m_mat_r","","","m_mat",NA,NA,NA,NA
+"275","jmp_wld_menstrual_hygiene","m_reuse_r","","","m_reuse",NA,NA,NA,NA
+"276","jmp_wld_menstrual_hygiene","m_single_r","","","m_single",NA,NA,NA,NA
+"277","jmp_wld_menstrual_hygiene","m_aware_u","","","m_aware",NA,NA,NA,NA
+"278","jmp_wld_menstrual_hygiene","m_priv_u","","","m_priv",NA,NA,NA,NA
+"279","jmp_wld_menstrual_hygiene","m_part_u","","","m_part",NA,NA,NA,NA
+"280","jmp_wld_menstrual_hygiene","m_mat_u","","","m_mat",NA,NA,NA,NA
+"281","jmp_wld_menstrual_hygiene","m_reuse_u","","","m_reuse",NA,NA,NA,NA
+"282","jmp_wld_menstrual_hygiene","m_single_u","","","m_single",NA,NA,NA,NA
+"283","jmp_wld_menstrual_hygiene","region_sdg","","",NA,NA,NA,NA,NA
+"284","jmp_wld_menstrual_hygiene","region_who","","",NA,NA,NA,NA,NA
+"285","jmp_wld_menstrual_hygiene","region_unicef_programme","","",NA,NA,NA,NA,NA
+"286","jmp_wld_menstrual_hygiene","region_unicef_reporting","","",NA,NA,NA,NA,NA
+"287","jmp_wld_sanitation","name","","",NA,NA,NA,NA,NA
+"288","jmp_wld_sanitation","iso3","","",NA,NA,NA,NA,NA
+"289","jmp_wld_sanitation","year","","",NA,NA,NA,NA,NA
+"290","jmp_wld_sanitation","pop_n","","","pop",NA,NA,NA,NA
+"291","jmp_wld_sanitation","prop_u","","","prop",NA,NA,NA,NA
+"292","jmp_wld_sanitation","san_bas_n","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"293","jmp_wld_sanitation","san_lim_n","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"294","jmp_wld_sanitation","san_unimp_n","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"295","jmp_wld_sanitation","san_od_n","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"296","jmp_wld_sanitation","arc_san_bas_n","","","arc_san_bas",NA,NA,NA,NA
+"297","jmp_wld_sanitation","arc_san_od_n","","","arc_san_od",NA,NA,NA,NA
+"298","jmp_wld_sanitation","san_bas_r","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"299","jmp_wld_sanitation","san_lim_r","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"300","jmp_wld_sanitation","san_unimp_r","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"301","jmp_wld_sanitation","san_od_r","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"302","jmp_wld_sanitation","arc_san_bas_r","","","arc_san_bas",NA,NA,NA,NA
+"303","jmp_wld_sanitation","arc_san_od_r","","","arc_san_od",NA,NA,NA,NA
+"304","jmp_wld_sanitation","san_bas_u","","","san_bas","the population","using","basic sanitation services (improved sanitation facilities which are not shared)","Proportion of the population using basic sanitation services (improved sanitation facilities which are not shared)"
+"305","jmp_wld_sanitation","san_lim_u","","","san_lim","the population","using","limited sanitation services (improved sanitation facilities which are shared)","Proportion of the population using limited sanitation services (improved sanitation facilities which are shared)"
+"306","jmp_wld_sanitation","san_unimp_u","","","san_unimp","the population","using","unimproved sanitation facilities ","Proportion of the population using unimproved sanitation facilities "
+"307","jmp_wld_sanitation","san_od_u","","","san_od","the population","using","no sanitation facilities (open defecation)","Proportion of the population using no sanitation facilities (open defecation)"
+"308","jmp_wld_sanitation","arc_san_bas_u","","","arc_san_bas",NA,NA,NA,NA
+"309","jmp_wld_sanitation","arc_san_od_u","","","arc_san_od",NA,NA,NA,NA
+"310","jmp_wld_sanitation","san_sm_n","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"311","jmp_wld_sanitation","san_sdo_sm_n","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"312","jmp_wld_sanitation","san_fst_sm_n","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"313","jmp_wld_sanitation","san_sew_sm_n","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"314","jmp_wld_sanitation","arc_san_sm_n","","","arc_san_sm",NA,NA,NA,NA
+"315","jmp_wld_sanitation","san_lat_n","","","san_lat",NA,NA,NA,NA
+"316","jmp_wld_sanitation","san_sep_n","","","san_sep",NA,NA,NA,NA
+"317","jmp_wld_sanitation","san_sew_n","","","san_sew",NA,NA,NA,NA
+"318","jmp_wld_sanitation","san_sm_r","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"319","jmp_wld_sanitation","san_sdo_sm_r","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"320","jmp_wld_sanitation","san_fst_sm_r","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"321","jmp_wld_sanitation","san_sew_sm_r","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"322","jmp_wld_sanitation","arc_san_sm_r","","","arc_san_sm",NA,NA,NA,NA
+"323","jmp_wld_sanitation","san_lat_r","","","san_lat",NA,NA,NA,NA
+"324","jmp_wld_sanitation","san_sep_r","","","san_sep",NA,NA,NA,NA
+"325","jmp_wld_sanitation","san_sew_r","","","san_sew",NA,NA,NA,NA
+"326","jmp_wld_sanitation","san_sm_u","","","san_sm","the population","using","safely managed sanitation services","Proportion of the population using safely managed sanitation services"
+"327","jmp_wld_sanitation","san_sdo_sm_u","","","san_sdo_sm","the population","using","on-site sanitation facilities where wastes are safely disposed of in situ","Proportion of the population using on-site sanitation facilities where wastes are safely disposed of in situ"
+"328","jmp_wld_sanitation","san_fst_sm_u","","","san_fst_sm","the population","using","on-site sanitation facilities where faecal sludge is removed and treated off-site","Proportion of the population using on-site sanitation facilities where faecal sludge is removed and treated off-site"
+"329","jmp_wld_sanitation","san_sew_sm_u","","","san_sew_sm","the population","using","sewer connections where wastewater reaches treatment plants and is treated off-site","Proportion of the population using sewer connections where wastewater reaches treatment plants and is treated off-site"
+"330","jmp_wld_sanitation","arc_san_sm_u","","","arc_san_sm",NA,NA,NA,NA
+"331","jmp_wld_sanitation","san_lat_u","","","san_lat",NA,NA,NA,NA
+"332","jmp_wld_sanitation","san_sep_u","","","san_sep",NA,NA,NA,NA
+"333","jmp_wld_sanitation","san_sew_u","","","san_sew",NA,NA,NA,NA
+"334","jmp_wld_sanitation","sl","","",NA,NA,NA,NA,NA
+"335","jmp_wld_sanitation","region_sdg","","",NA,NA,NA,NA,NA
+"336","jmp_wld_sanitation","region_who","","",NA,NA,NA,NA,NA
+"337","jmp_wld_sanitation","region_unicef_programme","","",NA,NA,NA,NA,NA
+"338","jmp_wld_sanitation","region_unicef_reporting","","",NA,NA,NA,NA,NA
+"339","jmp_wld_water","name","","",NA,NA,NA,NA,NA
+"340","jmp_wld_water","iso3","","",NA,NA,NA,NA,NA
+"341","jmp_wld_water","year","","",NA,NA,NA,NA,NA
+"342","jmp_wld_water","pop_n","","","pop",NA,NA,NA,NA
+"343","jmp_wld_water","prop_u","","","prop",NA,NA,NA,NA
+"344","jmp_wld_water","wat_bas_n","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"345","jmp_wld_water","wat_lim_n","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"346","jmp_wld_water","wat_unimp_n","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"347","jmp_wld_water","wat_sur_n","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"348","jmp_wld_water","arc_wat_bas_n","","","arc_wat_bas",NA,NA,NA,NA
+"349","jmp_wld_water","wat_bas_r","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"350","jmp_wld_water","wat_lim_r","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"351","jmp_wld_water","wat_unimp_r","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"352","jmp_wld_water","wat_sur_r","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"353","jmp_wld_water","arc_wat_bas_r","","","arc_wat_bas",NA,NA,NA,NA
+"354","jmp_wld_water","wat_bas_u","","","wat_bas","the population","using","basic drinking water services","Proportion of the population using basic drinking water services"
+"355","jmp_wld_water","wat_lim_u","","","wat_lim","the population","using","limited drinking water services","Proportion of the population using limited drinking water services"
+"356","jmp_wld_water","wat_unimp_u","","","wat_unimp","the population","using","unimproved drinking water sources","Proportion of the population using unimproved drinking water sources"
+"357","jmp_wld_water","wat_sur_u","","","wat_sur","the population","using","no drinking water facility (surface water)","Proportion of the population using no drinking water facility (surface water)"
+"358","jmp_wld_water","arc_wat_bas_u","","","arc_wat_bas",NA,NA,NA,NA
+"359","jmp_wld_water","wat_sm_n","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"360","jmp_wld_water","wat_premises_n","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"361","jmp_wld_water","wat_available_n","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"362","jmp_wld_water","wat_quality_n","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"363","jmp_wld_water","arc_wat_sm_n","","","arc_wat_sm",NA,NA,NA,NA
+"364","jmp_wld_water","wat_pip_n","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"365","jmp_wld_water","wat_npip_n","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"366","jmp_wld_water","wat_sm_r","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"367","jmp_wld_water","wat_premises_r","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"368","jmp_wld_water","wat_available_r","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"369","jmp_wld_water","wat_quality_r","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"370","jmp_wld_water","arc_wat_sm_r","","","arc_wat_sm",NA,NA,NA,NA
+"371","jmp_wld_water","wat_pip_r","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"372","jmp_wld_water","wat_npip_r","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"373","jmp_wld_water","wat_sm_u","","","wat_sm","the population","using","safely managed drinking water services","Proportion of the population using safely managed drinking water services"
+"374","jmp_wld_water","wat_premises_u","","","wat_premises","the population","using","improved water sources which are accessible on premises","Proportion of the population using improved water sources which are accessible on premises"
+"375","jmp_wld_water","wat_available_u","","","wat_available","the population","using","improved water sources which are available when needed","Proportion of the population using improved water sources which are available when needed"
+"376","jmp_wld_water","wat_quality_u","","","wat_quality","the population","using","improved water sources which are free from contamination","Proportion of the population using improved water sources which are free from contamination"
+"377","jmp_wld_water","arc_wat_sm_u","","","arc_wat_sm",NA,NA,NA,NA
+"378","jmp_wld_water","wat_pip_u","","","wat_pip","the population","using","piped improved drinking water sources","Proportion of the population using piped improved drinking water sources"
+"379","jmp_wld_water","wat_npip_u","","","wat_npip","the population","using","non-piped improved drinking water sources","Proportion of the population using non-piped improved drinking water sources"
+"380","jmp_wld_water","sl","","",NA,NA,NA,NA,NA
+"381","jmp_wld_water","region_sdg","","",NA,NA,NA,NA,NA
+"382","jmp_wld_water","region_who","","",NA,NA,NA,NA,NA
+"383","jmp_wld_water","region_unicef_programme","","",NA,NA,NA,NA,NA
+"384","jmp_wld_water","region_unicef_reporting","","",NA,NA,NA,NA,NA
