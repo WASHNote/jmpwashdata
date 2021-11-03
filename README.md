@@ -20,6 +20,11 @@ with devtools.
 
 # Install JMP package with devtools
 
+The easiest way is to install the package from Github using devtools.
+``` r
+devtools::install_github("WASHNote/jmpwashdata")
+```
+
 Once you have built a binary file, install it locally. For example:
 
 ``` r
