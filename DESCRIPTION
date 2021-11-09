@@ -1,7 +1,7 @@
 Package: jmpwashdata
 Type: Package
 Title: WHO/UNICEF Joint Monitoring Programme Water and Sanitation Data
-Version: 0.1.2
+Version: 0.1.3
 Author: Nicolas Dickinson
 Maintainer: Nicolas Dickinson <dickinson@washnote.com>
 Description: As a convenience, this package reproduces a snapshot of the JMP WASH household (currently as of July 2021), WASH in schools and WASH in health care facilities data that is normally available in Excel sheets on https://washdata.org. 

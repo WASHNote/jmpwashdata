@@ -147,22 +147,65 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
   jmp_hh_wld_path <- paste0("data-raw/WLD/", filter(jmp_files, geo == "WLD", type == "household")$filename)
   jmp_hh_reg_path <- paste0("data-raw/REG/", filter(jmp_files, geo == "REG", type == "household")$filename)
 
+  jmp_schools_wld_path <- paste0("data-raw/WLD/", filter(jmp_files, geo == "WLD", type == "schools")$filename)
+  jmp_schools_reg_path <- paste0("data-raw/REG/", filter(jmp_files, geo == "REG", type == "schools")$filename)
+
+  jmp_healthcare_wld_path <- paste0("data-raw/WLD/", filter(jmp_files, geo == "WLD", type == "healthcare")$filename)
+  jmp_healthcare_reg_path <- paste0("data-raw/REG/", filter(jmp_files, geo == "REG", type == "healthcare")$filename)
+
   jmp_wld_sanitation <- .get_jmp_tibble(jmp_hh_wld_path, sheet = "san", col_names = TRUE)
   jmp_wld_hygiene <- .get_jmp_tibble(jmp_hh_wld_path, sheet = "hyg", col_names = TRUE)
   jmp_wld_water <- .get_jmp_tibble(jmp_hh_wld_path, sheet = "wat", col_names = TRUE)
   jmp_wld_menstrual_hygiene <- .get_jmp_tibble(jmp_hh_wld_path, sheet = "mh", col_names = TRUE)
 
+  jmp_schools_wld_sanitation <- .get_jmp_tibble(jmp_schools_wld_path, sheet = "Sanitation Data", col_names = TRUE)
+  jmp_schools_wld_hygiene <- .get_jmp_tibble(jmp_schools_wld_path, sheet = "Hygiene Data", col_names = TRUE)
+  jmp_schools_wld_water <- .get_jmp_tibble(jmp_schools_wld_path, sheet = "Water Data", col_names = TRUE)
+
+  jmp_healthcare_wld_sanitation <- .get_jmp_tibble(jmp_healthcare_wld_path, sheet = "san", col_names = TRUE)
+  jmp_healthcare_wld_hygiene <- .get_jmp_tibble(jmp_healthcare_wld_path, sheet = "hyg", col_names = TRUE)
+  jmp_healthcare_wld_water <- .get_jmp_tibble(jmp_healthcare_wld_path, sheet = "wat", col_names = TRUE)
+  jmp_healthcare_wld_env_cleaning <- .get_jmp_tibble(jmp_healthcare_wld_path, sheet = "clean", col_names = TRUE)
+  jmp_healthcare_wld_waste_man <- .get_jmp_tibble(jmp_healthcare_wld_path, sheet = "wman", col_names = TRUE)
+
   jmp_reg_sanitation <- .get_jmp_tibble(jmp_hh_reg_path, sheet = "san", col_names = TRUE)
   jmp_reg_hygiene <- .get_jmp_tibble(jmp_hh_reg_path, sheet = "hyg", col_names = TRUE)
   jmp_reg_water <- .get_jmp_tibble(jmp_hh_reg_path, sheet = "wat", col_names = TRUE)
+
+  jmp_schools_reg_sanitation <- .get_jmp_tibble(jmp_schools_reg_path, sheet = "Sanitation Data", col_names = TRUE)
+  jmp_schools_reg_hygiene <- .get_jmp_tibble(jmp_schools_reg_path, sheet = "Hygiene Data", col_names = TRUE)
+  jmp_schools_reg_water <- .get_jmp_tibble(jmp_schools_reg_path, sheet = "Water Data", col_names = TRUE)
+
+  jmp_healthcare_reg_sanitation <- .get_jmp_tibble(jmp_healthcare_reg_path, sheet = "san", col_names = TRUE)
+  jmp_healthcare_reg_hygiene <- .get_jmp_tibble(jmp_healthcare_reg_path, sheet = "hyg", col_names = TRUE)
+  jmp_healthcare_reg_water <- .get_jmp_tibble(jmp_healthcare_reg_path, sheet = "wat", col_names = TRUE)
+  jmp_healthcare_reg_env_cleaning <- .get_jmp_tibble(jmp_healthcare_reg_path, sheet = "clean", col_names = TRUE)
+  jmp_healthcare_reg_waste_man <- .get_jmp_tibble(jmp_healthcare_reg_path, sheet = "wman", col_names = TRUE)
+
 
   usethis::use_data(jmp_wld_sanitation,
                     jmp_wld_hygiene,
                     jmp_wld_water,
                     jmp_wld_menstrual_hygiene,
+                    jmp_schools_wld_sanitation,
+                    jmp_schools_wld_water,
+                    jmp_schools_wld_hygiene,
+                    jmp_healthcare_wld_sanitation,
+                    jmp_healthcare_wld_hygiene,
+                    jmp_healthcare_wld_water,
+                    jmp_healthcare_wld_env_cleaning,
+                    jmp_healthcare_wld_waste_man,
                     jmp_reg_sanitation,
                     jmp_reg_hygiene,
                     jmp_reg_water,
+                    jmp_schools_reg_sanitation,
+                    jmp_schools_reg_hygiene,
+                    jmp_schools_reg_water,
+                    jmp_healthcare_reg_sanitation,
+                    jmp_healthcare_reg_hygiene,
+                    jmp_healthcare_reg_water,
+                    jmp_healthcare_reg_env_cleaning,
+                    jmp_healthcare_reg_waste_man,
                     overwrite = TRUE,
                     compress = "bzip2")
 }
