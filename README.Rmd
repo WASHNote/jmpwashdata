@@ -23,6 +23,9 @@ The goal of jmpwashdata is to provide a snapshot of the JMP WASH household, WASH
 ## Installation
 
 You cannot yet install from [CRAN](https://CRAN.R-project.org). You must build it from source and install that. The easiest way to do this is with devtools.
+``` r
+install.packages("devtools")
+```
 
 # Install JMP package with devtools
 

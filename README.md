@@ -18,14 +18,21 @@ You cannot yet install from [CRAN](https://CRAN.R-project.org). You must
 build it from source and install that. The easiest way to do this is
 with devtools.
 
+``` r
+install.packages("devtools")
+```
+
 # Install JMP package with devtools
 
 The easiest way is to install the package from Github using devtools.
+
 ``` r
 devtools::install_github("WASHNote/jmpwashdata")
 ```
 
-Once you have built a binary file, install it locally. For example:
+Otherwise you can also close the repository and open it in RStudio to
+build the source code package and install it locally if you would like
+to contribute to the package. For example:
 
 ``` r
 if (length(grep(pattern = "jmpwashdata", x = installed.packages()[,"Package"])) == 0) {
