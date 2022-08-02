@@ -74,15 +74,15 @@ you may also clone the repository and open it in RStudio.
 
 # Changes
 
--   v.0.1.3 November 2021 Addition of extraction of regional and world
+-   v0.1.3 November 2021 Addition of extraction of regional and world
     school and healthcare facility datasets.
--   v.0.1.2 October 2021 Update of data files to include the new world
+-   v0.1.2 October 2021 Update of data files to include the new world
     and region files and changes in other files and to add more error
     handling. Includes now the data summary sheets found in the
     inequality files parsed to be in a cleaner long format.
--   v.0.1.1 July 2021 New published data files extracted with the 2019
+-   v0.1.1 July 2021 New published data files extracted with the 2019
     and 2020 data sets from JMP Excel sheets.
--   v.0.1.0 June 2021 Extraction of 2017 JMP files.
+-   v0.1.0 June 2021 Extraction of 2017 JMP files.
 
 # Wish list / roadmap
 
