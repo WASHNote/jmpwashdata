@@ -38,10 +38,11 @@ library(stringr)
 .collect_metadata <- function(links) {
   lapply(seq_along(links), function(i, x) {
     .wait_approx(.1)
+    message("Getting filename for ", x[[i]])
     jmp_excel <- HEAD("https://washdata.org/", path=x[[i]])
     filename = str_extract(
       jmp_excel$headers$`content-disposition`,
-      '(?<=").{1,128}(?=")'
+      '(?<=attachment; filename\\=).{1,128}(?=)'
     )
     type = str_extract(
       x[[i]],
@@ -64,12 +65,16 @@ library(stringr)
   files <- .collect_metadata(links)
   lapply(files, function(x) {
     print(x[1,"filename"])
+    print(paste0("https://washdata.org",
+                 x[1,"path"]))
+    target_dir <- paste0("data-raw/", if (is.na(folder)) x[1, "type"] else folder)
+    if (!dir.exists(target_dir)) dir.create(target_dir)
     .wait_approx(0.5)
     print(jmp_excel <- RETRY("GET", paste0("https://washdata.org",
                             x[1,"path"]),
-                     write_disk(paste0("data-raw/", if (is.na(folder)) x[1, "type"] else folder,"/",x[1,"filename"]), overwrite = overwrite),
+                     write_disk(path = paste0(target_dir,"/",x[1,"filename"]), overwrite = overwrite),
                      verbose()
-    ))
+    ), timeout(1))
   })
   bind_rows(files)
 }
