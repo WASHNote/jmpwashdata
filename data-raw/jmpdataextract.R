@@ -4,6 +4,8 @@
 library(rio)
 library(dplyr)
 library(tidyr)
+library(futile.logger)
+library(tryCatchLog)
 
 load("data/jmp_files.rda")
 
@@ -130,7 +132,7 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
       message = c(names(warnings()), error_txt),
       message_type = c(rep("warning", times = length(names(warnings()))), rep("error", times = length(error_txt)))
     )
-    assign("last.warning", NULL, envir = baseenv())
+    tryCatch(assign("last.warning", NULL, envir = baseenv()), warning = function(cond) {invisible()})
   }) %>% bind_rows()
 
   usethis::use_data(
@@ -227,7 +229,7 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
   jmp_household_watsan_sources <- lapply(countries$geo, function(x) {
     hh_path <- paste0("data-raw/household/", filter(jmp_files, geo == x, type == "household")$filename)
 
-    print(paste0("Watsan summary from: ", hh_path))
+    message(paste0("Watsan summary from: ", hh_path))
 
     watsan_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="A5:CL208", col_names = TRUE, col_types = c(rep("text", 2), rep("numeric", 88)))
     watsan_summary_data <- watsan_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
@@ -245,7 +247,7 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
   jmp_household_hygiene_sources <- lapply(countries$geo, function(x) {
     hh_path <- paste0("data-raw/household/", filter(jmp_files, geo == x, type == "household")$filename)
 
-    print(paste0("Hygiene summary from: ", hh_path))
+    message(paste0("Hygiene summary from: ", hh_path))
 
     hyg_summary_data <- readxl::read_excel(hh_path, sheet = "Chart Data", range="CM5:CU208", col_names = TRUE, col_types = c(rep("text", 2), rep("numeric", 7)))
     hyg_summary_data <- hyg_summary_data %>% filter(if_any(everything(), ~ (!is.na(.)&.!=0)))
@@ -271,6 +273,8 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
 ### Procedure to extract inequality data
 
 .extract_inequalities_estimate_data <- function() {
+  message("--- Starting to extract inequality estimate data ---")
+
   countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
 
   use_data <- usethis::use_data
@@ -279,12 +283,12 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
   lapply(c("water", "sanitation"), function(service_type) {
     dataset_name <- paste0("jmp_inequality_",service_type,"_estimate")
 
-    print(dataset_name)
+    message(dataset_name)
 
     dataset <- lapply(countries$geo, function(x) {
       ineq_path <- paste0("data-raw/inequalities/", filter(countries, geo == x)$filename)
 
-      print(ineq_path)
+      message(sprintf("Extracting from %s", ineq_path))
 
       .get_watsan_quintile_estimates(
         ineq_path = ineq_path,
@@ -302,6 +306,8 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
 }
 
 .extract_inequalities_region_data <- function(verbose = FALSE) {
+  message("--- Starting to extract inequality region data ---")
+
   countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
   #%>% filter(geo == "NPL")
 
@@ -335,6 +341,8 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
 }
 
 .extract_inequalities_source_data <- function() {
+  message("--- Starting to extract source data ---")
+
   countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG")))
   #%>% slice_head(n = 2)
 
@@ -368,6 +376,8 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
 
 
 .extract_inequalities_data_summary <- function() {
+  message("--- Starting to extract inequality data summary ---")
+
   countries <- jmp_files %>% filter(type == "inequalities", !(geo %in% c("WLD", "REG"))) #%>% slice_head(n = 2)
 
   use_data <- usethis::use_data
@@ -557,14 +567,14 @@ var_attr <- function(x, attr_name, unlist = FALSE) {
 
   # for later - would be more readable to name the residence ranges
   lapply(1:3, function(x, ranges) {
-    message(x)
+    message(sprintf("ranges$residence[[%d]]", x))
     quin_vars <- suppressMessages(
       readxl::read_excel(ineq_path, sheet = sheet, range=ranges$residence[[x]], col_names = TRUE)
     ) %>%
       .estimate_quintile_vars(iso3)
 
     lapply(1:5, function(y, quintile_list) {
-      print(y*1000)
+      message(sprintf("quintile %d", y))
       df_quin <- suppressMessages(
         readxl::read_excel(ineq_path, sheet = sheet, range=as.character(quintile_list[y]), col_names = TRUE)
       )
