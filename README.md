@@ -12,8 +12,8 @@ It provides a tidy snapshot of the JMP WASH household, WASH in schools
 and WASH in health care facilities data that is normally available in
 Excel sheets on <https://washdata.org>. The excel sheets filenames and
 date downloaded are stored in the jmpwashdata::jmp\_files data frame as
-a reference. The last download for jmpwashdata version 0.1.3 took place
-on 2021-10-22.
+a reference. The last download for jmpwashdata version 0.1.4 took place
+on 2023-01-15.
 
 The goal is to keep the package up to date with changes on the JMP
 website and eventually to automate this process. If data are out of data
@@ -29,7 +29,7 @@ citation(package = "jmpwashdata")
 #> To cite package 'jmpwashdata' in publications use:
 #> 
 #>   Nicolas Dickinson (2021). jmpwashdata: WHO/UNICEF Joint Monitoring
-#>   Programme Water and Sanitation Data. R package version 0.1.3.
+#>   Programme Water and Sanitation Data. R package version 0.1.4.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -37,7 +37,7 @@ citation(package = "jmpwashdata")
 #>     title = {jmpwashdata: WHO/UNICEF Joint Monitoring Programme Water and Sanitation Data},
 #>     author = {Nicolas Dickinson},
 #>     year = {2021},
-#>     note = {R package version 0.1.3},
+#>     note = {R package version 0.1.4},
 #>   }
 #> 
 #> ATTENTION: This citation information has been auto-generated from the
@@ -74,15 +74,17 @@ you may also clone the repository and open it in RStudio.
 
 # Changes
 
--   v0.1.3 November 2021 Addition of extraction of regional and world
+-   v.0.1.4 February 2023 Update of data and cleanup of some of the
+    extraction messages.
+-   v.0.1.3 November 2021 Addition of extraction of regional and world
     school and healthcare facility datasets.
--   v0.1.2 October 2021 Update of data files to include the new world
+-   v.0.1.2 October 2021 Update of data files to include the new world
     and region files and changes in other files and to add more error
     handling. Includes now the data summary sheets found in the
     inequality files parsed to be in a cleaner long format.
--   v0.1.1 July 2021 New published data files extracted with the 2019
+-   v.0.1.1 July 2021 New published data files extracted with the 2019
     and 2020 data sets from JMP Excel sheets.
--   v0.1.0 June 2021 Extraction of 2017 JMP files.
+-   v.0.1.0 June 2021 Extraction of 2017 JMP files.
 
 # Wish list / roadmap
 

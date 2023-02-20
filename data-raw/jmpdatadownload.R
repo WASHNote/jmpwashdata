@@ -8,6 +8,8 @@ library(stringr)
 
 
 .refresh_data_files <- function() {
+  .remove_previous_data()
+
   page <- .download_page()
 
   wld_data <- .download_aggregate_files(page, target = "WLD")
@@ -27,6 +29,16 @@ library(stringr)
                     overwrite = TRUE,
                     compress = "bzip2")
 }
+
+.remove_previous_data <- function() {
+  unlink("data-raw/healthcare",recursive=TRUE)
+  unlink("data-raw/household",recursive=TRUE)
+  unlink("data-raw/inequalities",recursive=TRUE)
+  unlink("data-raw/REG",recursive=TRUE)
+  unlink("data-raw/schools",recursive=TRUE)
+  unlink("data-raw/WLD",recursive=TRUE)
+}
+
 
 ## Data is updated no more than annually as of 2021-06-22
 # target = "WLD" or "REG"
