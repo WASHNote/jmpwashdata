@@ -1,0 +1,21 @@
+---
+title: "Getting started with JMP data in R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with JMP data in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This tutorial will help you get started using the JMP data in R with the jmpwashdata package.
+
+```{r setup}
+library(jmpwashdata)
+```

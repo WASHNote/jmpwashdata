@@ -5,3 +5,4 @@
 *.xlsx
 *.xlsm
 data-raw/*.html
+inst/doc
